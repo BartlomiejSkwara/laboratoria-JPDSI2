@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Generator kształtów</title>
+</h:head>
+<h:body>
+
+	<h1>Generator kształtów </h1>
+
+	<h:form id="bla">
+		
+		kształt: <h:selectOneMenu value="#{generatorBB.shape}">
+			<f:selectItem itemValue="square" itemLabel="Kwadrat"></f:selectItem>
+			<f:selectItem itemValue="stairs" itemLabel="Schodki"></f:selectItem>
+			<f:selectItem itemValue="triangle" itemLabel="Trójkąt"></f:selectItem>
+			<f:selectItem itemValue="rhombus" itemLabel="Romb"></f:selectItem>
+		</h:selectOneMenu>
+		<br />
+		
+  		rozmiar: <h:inputText value="#{generatorBB.size}"  maxlength="2" size="2" />
+		<br />
+  		znak: <h:inputText value="#{generatorBB.character}"  maxlength="1" size="1"  />
+		<br />
+		
+		<h:commandButton value="Generuj" action="#{generatorBB.actionGenerate()}"/>
+		<h:messages id="msg" />
+		
+	 	<p style="white-space: pre-wrap;">#{generatorBB.result}</p>
+		<h:commandLink value="Podstrona" action="#{generatorBB.info()}" />
+	</h:form>
+
+</h:body>
+</html>
